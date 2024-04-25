@@ -1,0 +1,9 @@
+.track-list {
+    padding: 2rem;
+    max-height: 500px;
+    overflow-y: auto;
+
+    mat-card {
+        margin: 1rem;
+    }
+}

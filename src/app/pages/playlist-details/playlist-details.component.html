@@ -1,0 +1,25 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{ playlist?.title }} - {{ playlist?.user?.name }}
+        </mat-panel-title>
+        <mat-panel-description>
+            Duration: {{ formatDuration(playlist?.duration) }}
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <img [src]="playlist?.picture" alt="Playlist cover">
+</mat-expansion-panel>
+
+@if (tracks && tracks.length > 0) {
+    <div class="track-list" (scroll)="onScroll($event)">
+        @for(item of tracks; track item?.id) {
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        {{ item.title }} - {{ item.artist?.name }} - {{ formatDuration(item.duration) }}
+                    </mat-card-title>
+                </mat-card-header>
+            </mat-card>
+        }
+    </div>
+}

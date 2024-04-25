@@ -1,0 +1,19 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+    @if (
+        playlists && playlists.length > 0
+    ) {
+        @for(playlist of playlists; track playlist.id) {
+            <mat-grid-tile>
+                <mat-card (click)="selectPlaylist(playlist.id)">
+                    <img mat-card-image [src]="playlist.picture" alt="Playlist cover">
+                    <mat-card-header>
+                        <mat-card-title>{{ playlist.title }}</mat-card-title>
+                    </mat-card-header>
+                </mat-card>
+            </mat-grid-tile>
+        }
+    }
+</mat-grid-list>
+@if (errorMessage !== '') {
+    <app-error [message]="errorMessage"></app-error>
+}
